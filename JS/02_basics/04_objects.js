@@ -26,6 +26,8 @@ const obj4 = { 5: "a", 6: "b" };
 // const obj3 = { obj1, obj2 };
 // const obj3 = Object.assign({}, obj1, obj2, obj4);
 
+// Rest Operator:-
+
 const obj3 = { ...obj1, ...obj2 };
 // console.log(obj3);
 
@@ -45,10 +47,36 @@ const users = [
 ];
 
 // console.log(users[1].email);
-console.log(tinderUser);
+// console.log(tinderUser);
 
-console.log(Object.keys(tinderUser));
-console.log(Object.values(tinderUser));
-console.log(Object.entries(tinderUser));
+// console.log(Object.keys(tinderUser));
+// console.log(Object.values(tinderUser));
+// console.log(Object.entries(tinderUser));
 
-console.log(tinderUser.hasOwnProperty("isLoggedIn"));
+// console.log(tinderUser.hasOwnProperty("isLoggedIn"));
+
+const course = {
+  courseName: "js in hindi",
+  price: "999",
+  courseInstructor: "hitesh",
+};
+
+// course.courseInstructor
+
+const { courseInstructor: instructor } = course;
+const { price } = course;
+
+console.log(instructor);
+console.log(price);
+
+// {
+//   "name": "hitesh",
+//   "courseName": "js in hindi",
+//   "price": "free",
+// }
+
+[
+{},
+{},
+{},
+]

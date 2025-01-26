@@ -9,6 +9,9 @@ const gameName = new String("hitesh-hc-com");
 
 // console.log(gameName[0]);
 // console.log(gameName.__proto__);
+
+// String Methods:-
+
 console.log(gameName.charAt(2));
 console.log(gameName.indexOf("t"));
 

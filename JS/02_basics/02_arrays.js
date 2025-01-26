@@ -9,7 +9,7 @@ const dc_heroes = ["superMan", "flash", "batMan"];
 // const all_heroes = marvel_heroes.concat(dc_heroes);
 // console.log(all_heroes);
 
-// spread operator
+// Spread Operator:-
 
 const all_new_heroes = [...marvel_heroes, ...dc_heroes];
 // console.log(all_new_heroes);
