@@ -12,6 +12,7 @@ Find the area of the rectangle formed by the provided input. Round off the answe
 Sample Input :
 2
 3
+
 Sample Output :
 6
 */
@@ -19,9 +20,10 @@ Sample Output :
 let A = 2;
 let B = 3;
 
+let C = A * B;
+
 console.log("Ans: 1");
 
-let C = A * B;
 console.log(C);
 
 /*
@@ -35,6 +37,7 @@ Convert and print this value in meters and centimeters.
 
 Sample Input :
 2
+
 Sample Output :
 2000
 200000 
@@ -67,6 +70,7 @@ Calculate and print the Circumference of the circle corresponding to the input r
 
 Sample Input :
 2
+
 Sample Output :
 12.57
 */
@@ -79,9 +83,10 @@ if (radius < 0) {
   console.log("Error");
 }
 
+let circumference = 2 * Math.PI * radius;
+
 console.log("Ans: 3");
 
-let circumference = 2 * Math.PI * radius;
 console.log(circumference.toFixed(2));
 
 /*
@@ -95,6 +100,7 @@ Find the cube of the number.
 
 Sample Input :
 2
+
 Sample Output :
 8
 */
@@ -122,6 +128,7 @@ The output shall be the temperature converted into Fahrenheit corresponding to t
 
 Sample Input :
 12
+
 Sample Output :
 53.60
 */
@@ -151,6 +158,7 @@ Find out whether the number is odd or even. Print "Odd" or "Even" for the corres
 
 Sample Input :
 2
+
 Sample Output :
 Even
 */
@@ -182,6 +190,7 @@ Find the Nth term in the provided series.
 
 Sample Input :
 18
+
 Sample Output :
 324
 */
@@ -207,6 +216,7 @@ Print the factorial of the integer.
 
 Sample Input :
 2
+
 Sample Output :
 2
 */
@@ -214,11 +224,12 @@ Sample Output :
 let number = 4;
 let fact = 1;
 
-console.log("Ans: 8");
-
 for (let i = 1; i <= number; i++) {
   fact = fact * i;
 }
+
+console.log("Ans: 8");
+
 console.log(fact);
 
 /*
@@ -234,6 +245,7 @@ Sample Input :
 1
 2
 3
+
 Sample Output :
 3
 */
@@ -242,9 +254,10 @@ let aa = 1;
 let bb = 2;
 let cc = 3;
 
+let largest = Math.max(aa, bb, cc);
+
 console.log("Ans: 9");
 
-let largest = Math.max(aa, bb, cc);
 console.log(largest);
 
 /*
@@ -258,6 +271,7 @@ Output contains 5 lines with each line having the value N.
 
 Sample Input :
 4
+
 Sample Output :
 4
 4
@@ -273,3 +287,446 @@ console.log("Ans: 10");
 for (let i = 0; i < 5; i++) {
   console.log(n);
 }
+
+/*
+11.You will be provided with a number. Print the number of days in the month corresponding to that number.
+
+Note: In case the input is February, print 28 days. If the Input is not in valid range print "Error".
+
+Input Description:
+The input is in the form of a number.
+
+Output Description:
+Find the days in the month corresponding to the input number. Print Error if the input is not in a valid range.
+
+Sample Input :
+8
+
+Sample Output :
+31
+*/
+
+let month = 8;
+
+if (month === 0 || month >= 13) {
+  console.log("Error");
+}
+
+console.log("Ans: 11");
+
+switch (month) {
+  case 1:
+    console.log("31");
+    break;
+  case 2:
+    console.log("28");
+    break;
+  case 3:
+    console.log("31");
+    break;
+  case 4:
+    console.log("30");
+    break;
+  case 5:
+    console.log("31");
+    break;
+  case 6:
+    console.log("30");
+    break;
+  case 7:
+    console.log("31");
+    break;
+  case 8:
+    console.log("31");
+    break;
+  case 9:
+    console.log("30");
+    break;
+  case 10:
+    console.log("31");
+    break;
+  case 11:
+    console.log("30");
+    break;
+  case 12:
+    console.log("31");
+    break;
+
+  default:
+    console.log("default case match");
+    break;
+}
+
+/*
+12.You are given with Principle amount($), Interest Rate(%) and Time (years) in that order. Find Simple Interest.
+
+Print the output up to two decimal places (Round-off if necessary).
+
+(S.I. = P*T*R/100)
+
+Input Description:
+Three values are given to you as the input. these values correspond to Principle amount, Interest Rate and Time in that particular order.
+
+Output Description:
+Find the Simple interest and print it up to two decimal places. Round off if required.
+
+Sample Input :
+1000 2 5
+
+Sample Output :
+100.00
+*/
+
+let p = 1000;
+let r = 2;
+let t = 5;
+
+let S_I = ((p * r * t) / 100).toFixed(2);
+
+console.log("Ans: 12");
+
+console.log(S_I);
+
+/*
+13.Let "A" be a year, write a program to check whether this year is a leap year or not.
+
+Print "Y" if its a leap year and "N" if its a common year.
+
+Input Description:
+A Year is the input in the form of a positive integer.
+
+Output Description:
+Print "Y" if its a leap year and "N" if its a common year.
+
+Sample Input :
+2020
+
+Sample Output :
+Y
+*/
+
+let year = 2020;
+
+console.log("Ans: 13");
+
+if ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) {
+  console.log("Y");
+} else {
+  console.log("N");
+}
+
+/*
+14.Write a code to get an integer N and print values from 1 till N in a separate line.
+
+Input Description:
+A single line contains an integer N.
+
+Output Description:
+Print the values from 1 to N in a separate line.
+
+Sample Input :
+5
+
+Sample Output :
+1
+2
+3
+4
+5
+*/
+
+let nN = 5;
+
+console.log("Ans:14");
+
+for (let i = 1; i <= nN; i++) {
+  console.log(i);
+}
+
+/*
+15.Write a code to get an integer N and print the values from N to 1.
+
+Input Description:
+A single line contains an integer N.
+
+Output Description:
+Print the values from N to 1 in a separate line.
+
+Sample Input :
+10
+
+Sample Output :
+10
+9
+8
+7
+6
+5
+4
+3
+2
+1
+
+*/
+
+let nNn = 10;
+
+console.log("Ans:15");
+
+for (let i = nNn; i > 0; i--) {
+  console.log(i);
+}
+
+/*
+16.Note: The output should be up to 2nd decimal place (round off if needed) and in case of a recurring decimal use braces i.e. for eg: 0.33333..... => 0.33.
+
+Note: Use Shri Dharacharya's Method to solve i.e. X = {-b + √(b² - 4ac) } / 2a & {-b-√(b² -4ac)} / 2a
+
+Input Description:
+Three numbers corresponding to the coefficients of x(squared), x and constant are given as an input in that particular order
+
+Output Description:
+Print the two values of X after rounding off to 2 decimal places if required.
+
+Sample Input :
+1 5 6
+
+Sample Output :
+-2.00
+-3.00
+*/
+
+const X = "1 5 6".split(" ");
+
+let aA = X[0];
+let bB = X[1];
+let cC = X[2];
+
+let dD = (-bB + Math.sqrt(bB * bB - 4 * aA * cC)) / (2 * aA);
+
+let eE = (-bB - Math.sqrt(bB * bB - 4 * aA * cC)) / (2 * aA);
+
+console.log("Ans:16");
+
+console.log(dD.toFixed(2));
+console.log(eE.toFixed(2));
+
+/*
+17.Let "A"  be a string. Remove all the whitespaces and find it's length.
+
+Input Description:
+A string is provide as an input
+
+Output Description:
+Remove all the whitespaces and then print the length of the remaining string.
+
+Sample Input :
+Lorem Ipsum
+
+Sample Output :
+10
+*/
+
+// let str = "Lorem Ipsum";
+
+// let count = 0;
+
+// console.log("Ans: 17");
+
+// for (let i = 0; i < str.length; i++) {
+//   if (str[i] !== " ") {
+//     count++;
+//   }
+// }
+
+// console.log(count);
+
+let str = "Lorem Ipsum";
+
+let newStr = str.replace(/\s/g, "").length;
+
+console.log("Ans: 17");
+
+console.log(newStr);
+
+/*
+18.Write a code get an integer number as input and print the sum of the digits.
+
+Input Description:
+A single line containing an integer.
+
+Output Description:
+Print the sum of the digits of the integer.
+
+Sample Input :
+124
+
+Sample Output :
+7
+*/
+
+let numStr = "124".split("");
+
+let sum = 0;
+
+for (let i = 0; i < numStr.length; i++) {
+  sum += parseInt(numStr[i]);
+}
+
+console.log("Ans: 18");
+
+console.log(sum);
+
+/*
+19.Write a code to get 2 integers as input and find the HCF of the 2 integer without using recursion or Euclidean algorithm.
+
+Input Description:
+A single line containing 2 integers separated by space.
+
+Output Description:
+Print the HCF of the integers.
+
+Sample Input :
+2 3
+
+Sample Output :
+1
+*/
+
+function findHcf(a, b) {
+  let min = Math.min(a, b);
+
+  let hcf = 1;
+
+  for (let i = 1; i <= min; i++) {
+    if (a % i === 0 && b % i === 0) {
+      hcf = i;
+    }
+  }
+
+  return hcf;
+}
+
+let input = "2 3";
+
+let [num1, num2] = input.split(" ").map(Number);
+
+const hcfResult = findHcf(num1, num2);
+
+console.log("Ans: 19");
+
+console.log(hcfResult);
+
+/*
+20.Write a code to get an integer N and print the digits of the integer.
+
+Input Description:
+A single line contains an integer N.
+
+Output Description:
+Print the digits of the integer in a single line separated by space,
+
+Sample Input :
+348
+
+Sample Output :
+3 4 8
+*/
+
+let separated = "348".split("").join(" ");
+
+console.log("Ans: 20");
+
+console.log(separated);
+
+/*
+21.Write a code to get an integer N and print the even values from 1 till N in a separate line.
+
+Input Description:
+A single line contains an integer N.
+
+Output Description:
+Print the even values from 1 to N in a separate line.
+
+Sample Input :
+6
+
+Sample Output :
+2
+4
+6
+*/
+
+let numN = 6;
+
+console.log("Ans: 21");
+
+for (let i = 1; i <= numN; i++) {
+  if (i % 2 === 0) {
+    console.log(i);
+  }
+}
+
+/*
+22.Write a code to get 2 integers A and N. Print the integer A, N times in separate line.
+
+Input Description:
+First line contains an integer A. Second line contains an Integer N.
+
+Output Description:
+Print the integer A, N times in a separate line.
+
+Sample Input :
+2 3
+
+Sample Output :
+2
+2
+2
+*/
+
+let num_an = "2 3".split(" ");
+
+let a1 = num_an[0];
+let n1 = num_an[1];
+
+console.log("Ans: 22");
+
+for (let i = 0; i < n1; i++) {
+  console.log(a1);
+}
+
+/*
+23.Write a code get an integer number as input and print the odd and even digits of the number separately.
+
+Input Description:
+A single line containing an integer.
+
+Output Description:
+Print the even and odd integers of the integer in a separate line.
+
+Sample Input :
+1234
+
+Sample Output :
+2 4
+1 3
+*/
+
+let in_num = "1234".split("");
+
+let en = [];
+let on = [];
+
+for (let i = 0; i < in_num.length; i++) {
+  if (in_num[i] % 2 === 0) {
+    en.push(in_num[i]);
+  } else {
+    on.push(in_num[i]);
+  }
+}
+
+console.log("Ans: 23");
+
+console.log(en.join(" "));
+console.log(on.join(" "));
