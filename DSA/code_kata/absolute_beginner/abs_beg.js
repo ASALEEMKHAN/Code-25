@@ -730,3 +730,208 @@ console.log("Ans: 23");
 
 console.log(en.join(" "));
 console.log(on.join(" "));
+
+/*
+24.Print the First 3 multiples of the given number "N". (N is a positive integer)
+
+Note: print the characters with a single space between them.
+
+Input Description:
+A positive integer is provided to you as an input.
+
+Output Description:
+Print the First 3 multiples of the number with single spaces between them as an output.
+
+Sample Input :
+2
+
+Sample Output :
+2 4 6
+*/
+
+// let inputN = 2;
+
+// let mul1 = inputN * 1;
+// let mul2 = inputN * 2;
+// let mul3 = inputN * 3;
+
+// console.log("Ans: 24");
+
+// console.log(`${mul1} ${mul2} ${mul3}`);
+
+let inputN = 2;
+
+let mul = [];
+
+for (let i = 1; i <= 3; i++) {
+  mul.push(inputN * i);
+}
+
+console.log("Ans: 24");
+
+console.log(mul.join(" "));
+
+/*
+25.The area of an equilateral triangle is ¼(√3a2) where "a" represents a side of the triangle. You are provided with the side "a". Find the area of the equilateral triangle.
+
+Input Description:
+The side of an equilateral triangle is provided as the input.
+
+Output Description:
+Find the area of the equilateral triangle and print the answer up to 2 decimal places after rounding off.
+
+Sample Input :
+20
+
+Sample Output :
+173.21
+*/
+
+let in_a = 20;
+
+let res_a = (Math.sqrt(3) * in_a * in_a) / 4;
+
+console.log("Ans: 25");
+
+console.log(res_a.toFixed(2));
+
+/*
+26.Using the method of looping, write a program to print the table of 9 till N in the format as follows:
+(N is input by the user)
+
+9 18 27...
+
+Print NULL if 0 is input
+
+Input Description:
+A positive integer is provided as an input.
+
+Output Description:
+Print the table of nine with single space between the elements till the number that is input.
+
+Sample Input :
+3
+
+Sample Output :
+9 18 27
+*/
+
+let inN = 3;
+
+console.log("Ans: 26");
+
+if (inN === 0) console.log("NULL");
+
+let table = [];
+
+for (let i = 1; i <= inN; i++) {
+  table.push(9 * i);
+}
+
+console.log(table.join(" "));
+
+/*
+27.Write a program to get a string as input and reverse the string without using temporary variable.
+
+Input Description:
+A single line containing a string.
+
+Output Description:
+Print the reversed string.
+
+Sample Input :
+GUVI
+Sample Output :
+IVUG
+*/
+
+let inStr = "GUVI".split("");
+
+let revStr = inStr.reverse().join("");
+
+console.log("Ans: 27");
+
+console.log(revStr);
+
+/*
+28.You are given Two Numbers, A and B. If C = A + B. Find C.
+
+Note: Round off the output to a single decimal place.
+
+Input Description:
+You are provided with two numbers A and B.
+
+Output Description:
+Find the sum of the two numbers (A + B)
+
+Sample Input :
+1
+1
+
+Sample Output :
+2
+*/
+
+let in_A = 1;
+let in_B = 1;
+
+let in_C = in_A + in_B;
+
+console.log("Ans: 28");
+
+console.log(Math.round(in_C));
+
+/*
+29.You are provided with two numbers. Find and print the smaller number.
+
+Input Description:
+You are provided with two numbers as input.
+
+Output Description:
+Print the small number out of the two numbers.
+
+Sample Input :
+23 1
+
+Sample Output :
+1
+*/
+
+let twoNum = "23 1".split(" ");
+
+let num_1 = twoNum[0];
+let num_2 = twoNum[1];
+
+let smallNum = Math.min(num_1, num_2);
+
+console.log("Ans: 29");
+
+console.log(smallNum);
+
+/*
+30.Write a code to get an integer N and print the sum of  values from 1 to N.
+
+Input Description:
+A single line contains an integer N.
+
+Output Description:
+Print the sum of values from 1 to N.
+
+Sample Input :
+10
+
+Sample Output :
+55
+*/
+
+let in_n = 10;
+
+let sumN = 0;
+
+for (let i = 1; i <= in_n; i++) {
+  sumN += i;
+}
+
+console.log("Ans: 30");
+
+console.log(sumN);
