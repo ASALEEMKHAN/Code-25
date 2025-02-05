@@ -41,6 +41,7 @@ console.log(res_1);
 
 /*
 2.Find the minimum among 10 numbers.
+
 Sample Testcase :
 INPUT
 5 4 3 2 1 7 6 10 8 9
@@ -146,6 +147,7 @@ console.log(maxConsecutiveOnes(input_4));
 
 /*
 5.Given a number N, print yes if the number is a multiple of 7 else print no.
+
 Sample Testcase :
 INPUT
 49
@@ -165,31 +167,191 @@ if (input_5 % 7 === 0) {
 }
 
 /*
-6.
+6.You are given a set of numbers, out of which you have to tell which of them are finest. A finest number ‘n’ is a number which is formed by a number ‘t’ such that
+
+n=t^3+(t+1)^3
+
+t is a natural number
+
+Input Description:
+You are given a number ‘z’ representing total numbers in an array, Next line contains z space separated numbers.
+
+Output Description:
+Print the numbers which are finest in ascending order if there are no such numbers print -1.
+
+Sample Input :
+2
+1729 189
+Sample Output :
+189 1729
 */
 
-// console.log("Ans: 6");
+function isFinestNumbers(n) {
+  let t = 1;
+
+  while (true) {
+    let finestNumbers = Math.pow(t, 3) + Math.pow(t + 1, 3);
+    if (finestNumbers === n) {
+      return true;
+    }
+    if (finestNumbers > n) {
+      break;
+    }
+    t++;
+  }
+  return false;
+}
+
+function findFinestNumbers(z, numbers) {
+  let finestNumbers = [];
+
+  for (let i = 0; i < z; i++) {
+    if (isFinestNumbers(numbers[i])) {
+      finestNumbers.push(numbers[i]);
+    }
+  }
+
+  if (finestNumbers.length === 0) {
+    console.log(-1);
+  } else {
+    finestNumbers.sort((a, b) => a - b);
+    console.log(finestNumbers.join(" "));
+  }
+}
+
+let z = 2;
+let inputNumbers = [1729, 189];
+
+console.log("Ans: 6");
+
+findFinestNumbers(z, inputNumbers);
 
 /*
-7.
+7.Given 3 numbers a,b,c print a*b mod c.
+
+Sample Testcase :
+INPUT
+5 3 2
+
+OUTPUT
+1
 */
 
-// console.log("Ans: 7");
+let input_7 = "5 3 2".split(" ").map(Number);
+
+let a = input_7[0];
+let b = input_7[1];
+let c = input_7[2];
+
+let res_7 = (a * b) % c;
+
+console.log("Ans: 7");
+
+console.log(res_7);
 
 /*
-8.
+8.You are provided with a number ’n’. Your task is to tell whether that number is saturated. A saturated number is a number which is made by exactly two digits.
+
+Input Description:
+You are given with a number n.
+
+Output Description:
+Print Saturated if it is saturated else it is Unsaturated
+
+Sample Input :
+121 
+
+Sample Output :
+Saturated
 */
 
-// console.log("Ans: 8");
+function isSaturated(n) {
+  const uniqueDigits = new Set(n.toString().split(""));
+
+  return uniqueDigits.size === 2 ? "Saturated" : "unSaturated";
+}
+
+const input_8 = 121;
+
+console.log("Ans: 8");
+
+console.log(isSaturated(input_8));
 
 /*
-9.
+9.boy rolls an unbiased die until he gets ‘1’. You are given a number n find the total sum of probability that he will get ‘1’ on or before nth trial.(Probability of getting 1 at 1 time + probability of getting 1 at 2 trial….+probability of getting 1 at nth trial)
+
+Constraints
+
+1<=n<=1000
+
+Input Description:
+You are given a number ‘n’.
+
+Output Description:
+Print two numbers denoting numerator and denominator
+
+Sample Input :
+1
+
+Sample Output :
+1 6
 */
 
-// console.log("Ans: 9");
+function findProbabilitySum(n) {
+  let numerator = Math.pow(6, n) - Math.pow(5, n);
+  let denominator = Math.pow(6, n);
+
+  return `${numerator} ${denominator}`;
+}
+
+const input_9 = 1;
+
+console.log("Ans: 9");
+
+console.log(findProbabilitySum(input_9));
 
 /*
-10.
+10.In a firm there is an intelligent employee. He said that he will not work on all those days which has factors more than 2. You are given with month and year calculate the no of working days of employee.
+
+Input Description:
+Month(M) and year(Y)
+
+Output Description:
+N denoting no of working days
+
+Sample Input :
+May 2016
+
+Sample Output :
+11
 */
 
-// console.log("Ans: 10");
+function isPrime(num) {
+  for (let i = 2, s = Math.sqrt(num); i <= s; i++)
+    if (num % i === 0) return false;
+  return num > 1;
+}
+
+function workingDays(month, year) {
+  const daysInMonth = new Date(
+    year,
+    new Date(Date.parse(month + " 1," + year)).getMonth() + 1,
+    0
+  ).getDate();
+
+  let workingDays = 0;
+
+  for (let day = 1; day <= daysInMonth; day++) {
+    if (isPrime(day)) {
+      workingDays++;
+    }
+  }
+  return workingDays;
+}
+
+const input_10 = "May 2016".split(" ");
+const [month, year] = input_10;
+
+console.log("Ans: 10");
+
+console.log(workingDays(month, year));
