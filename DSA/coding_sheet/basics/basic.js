@@ -356,31 +356,256 @@ console.log("Ans: 7");
 console.log(findDivisors(inp_7).join(" "));
 
 /*
-8.
+8.Given a number n, determine whether it is a prime number or not. A prime number is a number greater than 1 that has no positive divisors other than 1 and itself.
+
+Examples:
+
+Input: n = 7
+Output: true
+Explanation: 7 has exactly two divisors: 1 and 7, making it a prime number.
+
+Input: n = 25
+Output: false
+Explanation: 25 has more than two divisors: 1, 5, and 25, so it is not a prime number.
+
+Input: n = 1
+Output: false
+Explanation: 1 has only one divisor (1 itself), which is not sufficient for it to be considered prime.
+
+Expected Time Complexity: O(sqrt(N))
+Expected Space Complexity: O(1)
 */
 
-// console.log("Ans: 8");
+function isPrime(n) {
+  if (n <= 1) return "false";
+
+  for (let i = 2; i * i <= n; i++) {
+    if (n % i === 0) return "false";
+  }
+  return "true";
+}
+
+console.log("Ans: 8");
+
+console.log(isPrime(7));
+console.log(isPrime(25));
+console.log(isPrime(1));
 
 /*
-9.
+9.You are given a 3-digit number n, Find whether it is an Armstrong number or not.
+
+An Armstrong number of three digits is a number such that the sum of the cubes of its digits is equal to the number itself. 371 is an Armstrong number since 33 + 73 + 13 = 371. 
+
+Note: Return "true" if it is an Armstrong number else return "false".
+
+Examples
+
+Input: n = 153
+Output: true
+Explanation: 153 is an Armstrong number since 13 + 53 + 33 = 153. Hence answer is "true".
+
+Input: n = 372
+Output: false
+Explanation: 372 is not an Armstrong number since 33 + 73 + 23 = 378. Hence answer is "false".
+
+Expected Time Complexity: O(1)
+Expected Auxiliary Space: O(1)  
 */
 
-// console.log("Ans: 9");
+function armstrongNum(n) {
+  let temp = n;
+  let sum = 0;
+
+  while (n !== 0) {
+    let digit = n % 10;
+    sum += Math.pow(digit, 3);
+    n = Math.floor(n / 10);
+  }
+
+  if (sum === temp) {
+    return "true";
+  } else {
+    return "false";
+  }
+}
+
+let inp_9 = 153;
+
+console.log("Ans: 9");
+
+console.log(armstrongNum(inp_9));
 
 /*
-10.
+10.You are given an integer n. Your task is to determine whether it is a palindrome.
+
+A number is considered a palindrome if it reads the same backward as forward, like the string examples "MADAM" or "MOM".
+
+Examples:
+
+Input: n = 555
+Output: true
+Explanation: The number 555 reads the same backward as forward, so it is a palindrome.
+
+Input: n = 123
+Output: false
+Explanation: The number 123 reads differently backward (321), so it is not a palindrome.
+
+Expected Time Complexity: O(x)
+Expected Space Complexity: O(x) where x is number of digits in n.
 */
 
-// console.log("Ans: 10");
+function isPalindrome(n) {
+  let str = n.toString();
+
+  let reverseStr = str.split("").reverse().join("");
+
+  if (reverseStr === str) {
+    return "true";
+  } else {
+    return "false";
+  }
+}
+
+let inp_10 = 555;
+
+console.log("Ans: 10");
+
+console.log(isPalindrome(inp_10));
 
 /*
-11.
+11.Given a positive integer n, find the square root of n. If n is not a perfect square, then return the floor value.
+
+Floor value of any number is the greatest Integer which is less than or equal to that number
+
+Examples:
+
+Input: n = 4
+Output: 2
+Explanation: Since, 4 is a perfect square, so its square root is 2.
+
+Input: n = 11
+Output: 3
+Explanation: Since, 11 is not a perfect square, floor of square root of 11 is 3.
+
+Input: n = 1
+Output: 1
+
+Expected Time Complexity: O(log N)
+Expected Auxiliary Space: O(1)
 */
 
-// console.log("Ans: 11");
+function floorSqrtOne(n) {
+  let low = 1;
+  let high = n;
+
+  while (low <= high) {
+    let mid = Math.floor((low + high) / 2);
+    let val = mid * mid;
+
+    if (val <= n) {
+      low = mid + 1;
+    } else {
+      high = mid - 1;
+    }
+  }
+  return high;
+}
+
+let inp_11 = 4;
+
+console.log("Ans: 11");
+
+console.log(floorSqrtOne(inp_11));
+
+////////////////////////////////////////////////////////////////////////////////
+
+function floorSqrtTwo(N) {
+  if (N === 0 || N === 1) return N;
+
+  let start = 1;
+  let end = N;
+  let ans = 0;
+
+  while (start <= end) {
+    let mid = Math.floor((start + end) / 2);
+
+    if (mid * mid === N) {
+      return end;
+    }
+
+    if (mid * mid < N) {
+      start = end + 1;
+      ans = mid;
+    } else {
+      end = mid - 1;
+    }
+  }
+  return ans;
+}
+
+console.log(floorSqrtTwo(11));
 
 /*
-12.
+12.Given a number n, check if a number is perfect or not. A number is said to be perfect if sum of all its factors excluding the number itself is equal to the number. 
+
+Examples:
+
+Input: n = 6
+Output: true 
+Explanation: Factors of 6 are 1, 2, 3 and 6. Excluding 6 their sum is 6 which is equal to N itself. So, it's a Perfect Number.
+
+Input: n = 10
+Output: false
+Explanation: Factors of 10 are 1, 2, 5 and 10. Excluding 10 their sum is 8 which is not equal to N itself. So, it's not a Perfect Number.
+
+Input: n = 11
+Output: false
+Explanation: Factors of 11 are 1, 11. Excluding 11 their sum is 1 which is not equal to N itself. So, it's not a Perfect Number.
+
+Expected Time Complexity: O(sqrt(N))
+Expected Auxiliary Space: O(1)
 */
 
-// console.log("Ans: 12");
+function isPerfectNumOne(n) {
+  if (n <= 1) {
+    return "false";
+  }
+
+  let sum = 1;
+
+  for (let i = 2; i * i < n; i++) {
+    if (n % i === 0) {
+      sum += i;
+    }
+
+    if (i !== n / i) {
+      sum += n / i;
+    }
+  }
+  return sum === n ? "true" : "false";
+}
+
+let inp_12 = 6;
+
+console.log("Ans: 12");
+
+console.log(isPerfectNumOne(inp_12));
+
+////////////////////////////////////////////////////////////////////////////////
+
+function isPerfectNumTwo(n) {
+  let sum = 0;
+
+  for (let i = 1; i < Math.sqrt(n); i++) {
+    if (n % i === 0) {
+      sum += i;
+    }
+
+    if (n / i !== n) {
+      sum += n / i;
+    }
+  }
+  return sum === n ? "true" : "false";
+}
+
+console.log(isPerfectNumTwo(10));
