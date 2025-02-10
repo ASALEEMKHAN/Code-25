@@ -1,5 +1,77 @@
 /*
-1.Given an array arr. Your task is to find the minimum and maximum elements in the array.
+1.Largest Element in an Array.
+
+Expected Time Complexity: O(n)
+Expected Auxiliary Space: O(1)
+*/
+
+function largestElement(arr) {
+  let largest = arr[0];
+
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i] > largest) {
+      largest = arr[i];
+    }
+  }
+  return largest;
+}
+
+let inp_1 = [1, 2, 3, 4, 5];
+
+console.log("Ans: 1");
+
+console.log(largestElement(inp_1));
+
+/*
+2.Second Largest & Second Smallest Elements in an Array without sorting.
+
+Expected Time Complexity: O(n)
+Expected Auxiliary Space: O(1)
+*/
+
+function secondLargest(arr, n) {
+  let largest = arr[0];
+  let sLargest = -1;
+
+  for (let i = 1; i < n; i++) {
+    if (arr[i] > largest) {
+      sLargest = largest;
+      largest = arr[i];
+    } else if (arr[i] < largest && arr[i] > sLargest) {
+      sLargest = arr[i];
+    }
+  }
+  return sLargest;
+}
+
+function secondSmallest(arr, n) {
+  let smallest = arr[0];
+  let sSmallest = Infinity;
+
+  for (let i = 1; i < n; i++) {
+    if (arr[i] < smallest) {
+      sSmallest = smallest;
+      smallest = arr[i];
+    } else if (arr[i] !== smallest && arr[i] < sSmallest) sSmallest = arr[i];
+  }
+  return sSmallest;
+}
+
+function getSecondOrderElement(n, arr) {
+  let sLargest = secondLargest(arr, n);
+  let sSmallest = secondSmallest(arr, n);
+  return [sLargest, sSmallest];
+}
+
+let inp_2 = [1, 2, 4, 7, 7, 5];
+let result_2 = getSecondOrderElement(inp_2.length, inp_2);
+
+console.log("Ans: 2");
+
+console.log(result_2);
+
+/*
+3.Given an array arr. Your task is to find the minimum and maximum elements in the array.
 
 Note: Return a Pair that contains two elements the first one will be a minimum element and the second will be a maximum.
 
@@ -49,16 +121,16 @@ function getMinimumAndMaximum(n, arr) {
   return [smallestNum, largestNum];
 }
 
-let inp_1 = [3, 2, 1, 56, 10000, 167];
+let inp_3 = [3, 2, 1, 56, 10000, 167];
 
-let result_1 = getMinimumAndMaximum(inp_1.length, inp_1);
+let result_3 = getMinimumAndMaximum(inp_3.length, inp_3);
 
-console.log("Ans: 1");
+console.log("Ans: 3");
 
-console.log(result_1);
+console.log(result_3);
 
 /*
-2.Given an array, arr of positive integers. Find the third largest element in it. Return -1 if the third largest element is not found.
+4.Given an array, arr of positive integers. Find the third largest element in it. Return -1 if the third largest element is not found.
 
 Examples:
 
@@ -106,10 +178,33 @@ function thirdLargest(arr) {
   return tLargest;
 }
 
-let inp_2 = [2, 4, 1, 3, 5];
+let inp_4 = [2, 4, 1, 3, 5];
 
-console.log("Ans: 2");
+console.log("Ans: 4");
 
-console.log(thirdLargest(inp_2));
+console.log(thirdLargest(inp_4));
 console.log(thirdLargest([10, 2]));
 console.log(thirdLargest([5, 5, 5]));
+
+/*
+5.Check if the array is sorted
+
+Expected Time Complexity: O(n)
+Expected Auxiliary Space: O(1)
+*/
+
+function isSorted(arr) {
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i] >= arr[i - 1]) {
+      return false;
+    }
+  }
+  return true;
+}
+
+let inp_5 = [5, 4, 3, 2, 1];
+
+console.log("Ans: 5");
+
+console.log(isSorted(inp_5));
+console.log(isSorted([1, 2, 3, 4, 5]));
