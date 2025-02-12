@@ -71,7 +71,57 @@ console.log("Ans: 2");
 console.log(result_2);
 
 /*
-3.Given an array arr. Your task is to find the minimum and maximum elements in the array.
+3.Check if the array is sorted
+
+Expected Time Complexity: O(n)
+Expected Auxiliary Space: O(1)
+*/
+
+function isSorted(arr) {
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i] >= arr[i - 1]) {
+      return false;
+    }
+  }
+  return true;
+}
+
+let inp_3 = [5, 4, 3, 2, 1];
+
+console.log("Ans: 3");
+
+console.log(isSorted(inp_3));
+console.log(isSorted([1, 2, 3, 4, 5]));
+
+/*
+4.Remove duplicates in-place from Sorted array.
+
+Expected Time Complexity: O(n)
+Expected Auxiliary Space: O(1)
+*/
+
+function removeDuplicates(arr) {
+  let i = 0;
+  let n = arr.length;
+
+  for (let j = 0; j < n; j++) {
+    if (arr[i] !== arr[j]) {
+      arr[i + 1] = arr[j];
+      i++;
+    }
+  }
+  return i + 1;
+}
+
+let inp_4 = [1, 1, 2, 2, 2, 3, 3];
+let newLength = removeDuplicates(inp_4);
+
+console.log("Ans: 4");
+
+console.log(inp_4.slice(0, newLength));
+
+/*
+5.Given an array arr. Your task is to find the minimum and maximum elements in the array.
 
 Note: Return a Pair that contains two elements the first one will be a minimum element and the second will be a maximum.
 
@@ -121,16 +171,16 @@ function getMinimumAndMaximum(n, arr) {
   return [smallestNum, largestNum];
 }
 
-let inp_3 = [3, 2, 1, 56, 10000, 167];
+let inp_5 = [3, 2, 1, 56, 10000, 167];
 
-let result_3 = getMinimumAndMaximum(inp_3.length, inp_3);
+let result_5 = getMinimumAndMaximum(inp_5.length, inp_5);
 
-console.log("Ans: 3");
+console.log("Ans: 5");
 
-console.log(result_3);
+console.log(result_5);
 
 /*
-4.Given an array, arr of positive integers. Find the third largest element in it. Return -1 if the third largest element is not found.
+6.Given an array, arr of positive integers. Find the third largest element in it. Return -1 if the third largest element is not found.
 
 Examples:
 
@@ -178,33 +228,34 @@ function thirdLargest(arr) {
   return tLargest;
 }
 
-let inp_4 = [2, 4, 1, 3, 5];
+let inp_6 = [2, 4, 1, 3, 5];
 
-console.log("Ans: 4");
+console.log("Ans: 6");
 
-console.log(thirdLargest(inp_4));
+console.log(thirdLargest(inp_6));
 console.log(thirdLargest([10, 2]));
 console.log(thirdLargest([5, 5, 5]));
 
 /*
-5.Check if the array is sorted
+7.Left Rotate an array by one place.
 
 Expected Time Complexity: O(n)
 Expected Auxiliary Space: O(1)
 */
 
-function isSorted(arr) {
-  for (let i = 1; i < arr.length; i++) {
-    if (arr[i] >= arr[i - 1]) {
-      return false;
-    }
+function leftRotateOne(arr) {
+  let n = arr.length;
+  let temp = arr[0];
+
+  for (let i = 1; i < n; i++) {
+    arr[i - 1] = arr[i];
   }
-  return true;
+  arr[n - 1] = temp;
+  return arr;
 }
 
-let inp_5 = [5, 4, 3, 2, 1];
+let inp_7 = [1, 2, 3, 4, 5];
 
-console.log("Ans: 5");
+console.log("Ans: 7");
 
-console.log(isSorted(inp_5));
-console.log(isSorted([1, 2, 3, 4, 5]));
+console.log(leftRotateOne(inp_7));
