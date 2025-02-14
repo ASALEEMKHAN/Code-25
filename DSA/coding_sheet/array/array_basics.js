@@ -243,7 +243,7 @@ Expected Time Complexity: O(n)
 Expected Auxiliary Space: O(1)
 */
 
-function leftRotateOne(arr) {
+function leftRotate_One(arr) {
   let n = arr.length;
   let temp = arr[0];
 
@@ -258,4 +258,159 @@ let inp_7 = [1, 2, 3, 4, 5];
 
 console.log("Ans: 7");
 
-console.log(leftRotateOne(inp_7));
+console.log(leftRotate_One(inp_7));
+
+/*
+8.Left Rotate an array by D places.
+
+Brute code:-
+Expected Time Complexity: O(n + d)
+Expected Auxiliary Space: O(d)
+*/
+
+function leftRotate_D(arr, n, d) {
+  d = d % n; // Handle cases where d >= n
+
+  let temp = []; // Temporary array to store the rotated elements
+
+  // Copy first `d` elements into `temp`
+  for (let i = 0; i < d; i++) {
+    temp.push(arr[i]);
+  }
+
+  // Shift the remaining elements to the left
+  for (let i = d; i < n; i++) {
+    arr[i - d] = arr[i];
+  }
+
+  // Copy the `temp` array elements to the end of the original array
+  for (let i = 0; i < d; i++) {
+    arr[n - d + i] = temp[i];
+  }
+}
+
+let inp_8_B = [1, 2, 3, 4, 5, 6, 7];
+let n = inp_8_B.length;
+let d = 3;
+
+leftRotate_D(inp_8_B, n, d);
+
+console.log("Ans: 8 (Brute)");
+
+console.log(inp_8_B);
+
+/*
+Optimal code:-
+Expected Time Complexity: O(2n) => O(n)
+Expected Auxiliary Space: O(1)
+*/
+
+function reverseArray(arr, start, end) {
+  while (start < end) {
+    let temp = arr[start];
+    arr[start] = arr[end];
+    arr[end] = temp;
+    start++;
+    end--;
+  }
+}
+
+function leftRotate_D2(arr, n, d) {
+  d = d % n; // Handle cases where d >= n
+
+  reverseArray(arr, 0, d - 1); // Reverse the first `d` elements
+  reverseArray(arr, d, n - 1); // Reverse the remaining `n - d` elements
+  reverseArray(arr, 0, n - 1); // Reverse the entire array
+}
+
+let inp_8_O = [1, 2, 3, 4, 5, 6, 7];
+let n1 = inp_8_O.length;
+let d2 = 3;
+
+leftRotate_D(inp_8_O, n1, d2);
+
+console.log("Ans: 8 (Optimal)");
+
+console.log(inp_8_O);
+
+/*
+9.Move Zero to end.
+
+Brute code:-
+Expected Time Complexity: O(2n) => O(n)
+Expected Auxiliary Space: O(n)
+*/
+
+function moveZeros(n, arr) {
+  let temp = [];
+
+  // Collect all non-zero elements
+  for (let i = 0; i < n; i++) {
+    if (arr[i] !== 0) {
+      temp.push(arr[i]);
+    }
+  }
+
+  // Number of non-zero elements
+  let nz = temp.length;
+
+  // Copy non-zero elements back to the original array
+  for (let i = 0; i < nz; i++) {
+    arr[i] = temp[i];
+  }
+
+  // Fill the rest of the array with zeros
+  for (let i = nz; i < n; i++) {
+    arr[i] = 0;
+  }
+
+  return arr;
+}
+
+let inp_9_B = [1, 0, 2, 3, 2, 0, 0, 4, 5, 1];
+let n_mz = inp_9_B.length;
+
+let result_mz = moveZeros(n_mz, inp_9_B);
+
+console.log("Ans: 9 (Brute)");
+
+console.log(result_mz);
+
+/*
+Optimal code:-
+Expected Time Complexity: O(n)
+Expected Auxiliary Space: O(1)
+*/
+
+function moveZeros2(n, arr) {
+  let j = -1;
+
+  // Find the first zero in the array
+  for (let i = 0; i < n; i++) {
+    if (arr[i] === 0) {
+      j = i;
+      break;
+    }
+  }
+
+  // If no zero is found, return the array as is
+  if (j === -1) return arr;
+
+  // Move non-zero elements to the front
+  for (let i = j + 1; i < n; i++) {
+    if (arr[i] !== 0) {
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+      j++;
+    }
+  }
+  return arr;
+}
+
+let inp_9_O = [1, 0, 2, 3, 2, 0, 0, 4, 5, 1];
+let n_mz2 = inp_9_O.length;
+
+result_mz2 = moveZeros2(n_mz2, inp_9_O);
+
+console.log("Ans: 9 (Optimal)");
+
+console.log(result_mz2);
