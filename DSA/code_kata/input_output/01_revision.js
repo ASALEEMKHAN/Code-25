@@ -1,0 +1,98 @@
+let num = 2;
+
+console.log("Ans: 1");
+
+console.log(num);
+
+////////////////////////////////////////////////////////////////////////////
+
+let numbers = "2 3 4 5 6 7 8";
+
+console.log("Ans: 2");
+
+console.log(numbers);
+
+////////////////////////////////////////////////////////////////////////////
+
+let a = "5 3";
+let b = "1 2 3 4 5";
+
+console.log("Ans: 3");
+
+console.log(a);
+console.log(b);
+
+////////////////////////////////////////////////////////////////////////////
+
+let A = "2 4";
+let B = "2 4";
+let C = "2 4";
+
+console.log("Ans: 4");
+
+console.log(A);
+console.log(B);
+console.log(C);
+
+////////////////////////////////////////////////////////////////////////////
+
+let a1 = 2;
+let b1 = 4;
+let c1 = 5;
+
+console.log("Ans: 5");
+
+console.log(a1, b1, c1);
+
+////////////////////////////////////////////////////////////////////////////
+
+let a2 = "2 5";
+let b2 = "2 5";
+let c2 = "2 4 5";
+
+console.log("Ans: 6");
+
+console.log(a2);
+console.log(b2);
+console.log(c2);
+
+////////////////////////////////////////////////////////////////////////////
+
+let word = "guvi";
+
+let spec = word.split("").join(" ");
+
+console.log("Ans: 7");
+
+console.log(spec);
+
+////////////////////////////////////////////////////////////////////////////
+
+let point = "2.3 4.5 7.8";
+
+let gap = point.split(" ");
+
+console.log("Ans: 8");
+
+console.log(gap[0]);
+console.log(gap[1]);
+console.log(gap[2]);
+
+////////////////////////////////////////////////////////////////////////////
+
+let inp = "guvigeek";
+
+console.log("Ans: 9");
+
+for (let i = 0; i < inp.length; i++) {
+  console.log(inp[i]);
+}
+
+
+////////////////////////////////////////////////////////////////////////////
+
+let str = "guvi".split("").join(",");
+
+console.log("Ans: 10");
+
+console.log(str);
